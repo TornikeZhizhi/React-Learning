@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Tokmarila  from './Person/Person.js'
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h1>I`m I React App</h1>
+  
+      <Tokmarila name="tornike"/>
+      <Tokmarila name="shaqro">children 2</Tokmarila>
+      <Tokmarila name="giusha" />
       </header>
     </div>
   );
+
+  // return React.createElement('div',{className: 'App'}, React.createElement('h1',null,'I Am React App'))
 }
 
 export default App;
