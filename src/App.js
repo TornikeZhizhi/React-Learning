@@ -29,79 +29,33 @@ class App extends Component {
         {name:"chika"}
     ],
 
-
-
-    myname: [{firstname:'nikala'}]
-
   };
 
   
 
-  mynameinput = (event) => {
-
-    this.setState({
-
-      myname:[{
-
-        firstname:event.target.value
-
-      }]
-    })
-
-  }
-
-  testNameChangeEvent = (event) => {
-    
-    this.setState({
-
-      testNames : [
-
-        {name:event.target.value},
-        {name:event.target.value},
-        {name:event.target.value}
-      
-    ]
-    })
-
-  }
-  
-
   clickFunction = () =>{
-
-    if(this.state.showPersons === true){
-      
-      document.getElementById('myname').value = "";
-
-    }
-
     this.setState({
-      // myname:[{
-      //   firstname:''
-      // }],
       showPersons: !this.state.showPersons
     })
 
   }
 
 
-
-
- 
-
   render(){
-
 
     let persons = null;
 
     if (this.state.showPersons === true){
       persons = (
-
          <div>
-            <Persona name={this.state.myname[0].firstname}/>
-            <Userinputi  change={this.mynameinput} />
-            <UserOutpoot name={this.state.testNames[0].name}></UserOutpoot>
-            <UserOutpoot name={this.state.testNames[1].name}></UserOutpoot>
-            <UserOutpoot name={this.state.testNames[2].name}></UserOutpoot>
+           {this.state.testNames.map((person,key) =>{
+            return( 
+              <div>
+                <Persona name={person.name}/>
+                <UserOutpoot name={this.state.testNames[key].name}></UserOutpoot>
+              </div>
+            ) 
+            })}
           </div> 
          
       )
