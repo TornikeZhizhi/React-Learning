@@ -40,6 +40,14 @@ class App extends Component {
 
   }
 
+  deletePesonsHandler = (personIndex) => {
+
+  const persons = this.state.testNames;
+  
+    persons.splice(personIndex,1)
+    this.setState({testNames:persons})
+
+  }
 
   render(){
 
@@ -51,7 +59,7 @@ class App extends Component {
            {this.state.testNames.map((person,key) =>{
             return( 
               <div>
-                <Persona name={person.name}/>
+                <Persona clicked={()=> this.deletePesonsHandler(key)} name={person.name}/>
                 <UserOutpoot name={this.state.testNames[key].name}></UserOutpoot>
               </div>
             ) 
