@@ -7,8 +7,8 @@ const userOutpoot = (props) => {
       
         <div className="userInput">
 
-            <p>i am paragraf</p>  
-            <p onClick={props.clicked}>i am {props.name}</p>  
+            
+            <p onClick={props.clicked}>I am {props.name} and I am {props.age} Years old</p>  
             
         </div>
     

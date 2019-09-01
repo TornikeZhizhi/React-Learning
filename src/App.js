@@ -49,6 +49,15 @@ class App extends Component {
 
   }
 
+
+
+  deleteOutpootHandeler = (outIndex) => {
+    
+   
+    this.state.persons.splice(outIndex,1)
+    this.setState({person:this.state.persons})
+  }
+
   render(){
 
     let persons = null;
@@ -56,11 +65,10 @@ class App extends Component {
     if (this.state.showPersons === true){
       persons = (
          <div>
-           {this.state.testNames.map((person,key) =>{
+           {this.state.testNames.map((person,index) =>{
             return( 
               <div>
-                <Persona clicked={()=> this.deletePesonsHandler(key)} name={person.name}/>
-                <UserOutpoot name={this.state.testNames[key].name}></UserOutpoot>
+                <Persona clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
               </div>
             ) 
             })}
@@ -69,11 +77,40 @@ class App extends Component {
       )
     }
 
+   let outPoot = (
+
+      <div>
+        {
+          this.state.persons.map((value,index)=> {
+
+            return(
+
+             <div>
+               <UserOutpoot clicked={this.deleteOutpootHandeler.bind(this,index)} name={value.name} age={index}></UserOutpoot>
+            </div>
+            
+            )
+          })
+ 
+
+
+        }
+      
+      </div>
+        
+    )
+
     return (
       <div className="App">
         <button onClick={this.clickFunction}>Clear </button>
         {this.state.showPersons === false ? <div>blablb</div>: null}
         {persons}
+        {outPoot}
+
+
+        
+
+
       </div>
     );
   }
