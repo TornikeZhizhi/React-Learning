@@ -6,10 +6,8 @@ const person = (props) => {
 
     return(
 
-      <div>
-     <h1  onClick={props.click}>I am {props.name} {Math.floor(Math.random() * 100)} years old</h1>
-        <p>{props.children}</p>
-        <input type="text" onChange={props.changed} value={props.name}/>
+      <div className="person1">
+        <h1 onClick={props.clicked}>Hi my name is {props.name}</h1>
       </div>  
      )
 }
