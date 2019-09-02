@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import './Person/Person.css';
-import Userinputi from './userInput/userInput.js';
 import UserOutpoot from './userOutpoot/userOutpoot.js';
 import Persona from './Person/Person.js';
 import Header from './Person/Header.js';
@@ -93,7 +92,7 @@ class App extends Component {
            {this.state.testNames.map((person,index) =>{
             return( 
               <div>
-                <Persona clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
+                <Persona key={index} clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
               </div>
             ) 
             })}
@@ -111,7 +110,7 @@ class App extends Component {
             return(
 
              <div>
-               <UserOutpoot clicked={this.deleteOutpootHandeler.bind(this,index)} name={value.name} age={index}></UserOutpoot>
+               <UserOutpoot  key={index} clicked={this.deleteOutpootHandeler.bind(this,index)} name={value.name} age={index}></UserOutpoot>
             </div>
             
             )
@@ -129,14 +128,8 @@ class App extends Component {
     let navigation = (
 
       <div className="header">
-            <ul>
-              {this.state.navigation.map((value,index )=>{
-                return( 
-                  <Header hover={this.testfuncton.bind(this,index)} name={value.page} link={value.url}></Header>
-                  // <li><a href={value.url}>{value.page}</a> </li>
-                  )
-                })}
-            </ul>
+            
+                  <Header  data={this.state.navigation} ></Header>
           </div>
     )
 
