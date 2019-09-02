@@ -75,10 +75,9 @@ class App extends Component {
 
   testfuncton =  (indexvalue) => {
 
-
-    
-    
-    document.getElementsByClassName("navlists")[indexvalue].classList.add("active")
+    this.state.navigation.splice(indexvalue,1)
+    this.setState({navigation:this.state.navigation})
+    document.getElementsByClassName("navlists")[indexvalue].classList.add("active");
     console.log("I am " + indexvalue + " element")
     
   }
