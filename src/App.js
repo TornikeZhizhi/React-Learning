@@ -4,6 +4,7 @@ import './Person/Person.css';
 import Userinputi from './userInput/userInput.js';
 import UserOutpoot from './userOutpoot/userOutpoot.js';
 import Persona from './Person/Person.js';
+import Header from './Person/Header.js';
 
 
 
@@ -16,6 +17,19 @@ class App extends Component {
       {name:"toka", age:"22"},
       {name:"toka2", age:"23"},
       {name:"toka2", age:"21"}
+
+    ],
+
+
+    navigation: [
+
+      {url:"www.google.com",page:"home"},
+      {url:"www.fb.com",page:"about"},
+      {url:"www.instagram.com",page:"gallery"},
+      {url:"www.go.com",page:"contact"},
+      {url:"www.foer.com",page:"video"},
+      {url:"www.google2.com",page:"book"}
+
 
     ],
 
@@ -42,10 +56,10 @@ class App extends Component {
 
   deletePesonsHandler = (personIndex) => {
 
-  const persons = this.state.testNames;
+  const testnamesArray = this.state.testNames;
   
-    persons.splice(personIndex,1)
-    this.setState({testNames:persons})
+  testnamesArray.splice(personIndex,1)
+    this.setState({testNames:testnamesArray})
 
   }
 
@@ -57,6 +71,18 @@ class App extends Component {
     this.state.persons.splice(outIndex,1)
     this.setState({person:this.state.persons})
   }
+
+
+  testfuncton =  (indexvalue) => {
+
+
+    
+    
+    document.getElementsByClassName("navlists")[indexvalue].classList.add("active")
+    console.log("I am " + indexvalue + " element")
+    
+  }
+
 
   render(){
 
@@ -96,17 +122,41 @@ class App extends Component {
 
         }
       
-      </div>
-        
+      </div>  
+    )
+
+     
+
+    let navigation = (
+
+      <div className="header">
+            <ul>
+              {this.state.navigation.map((value,index )=>{
+                return( 
+                  <Header hover={this.testfuncton.bind(this,index)} name={value.page} link={value.url}></Header>
+                  // <li><a href={value.url}>{value.page}</a> </li>
+                  )
+                })}
+            </ul>
+          </div>
     )
 
     return (
       <div className="App">
+
+
+       
+          
+           {navigation}
+         
+          
+    
+        
         <button onClick={this.clickFunction}>Clear </button>
         {this.state.showPersons === false ? <div>blablb</div>: null}
         {persons}
         {outPoot}
-
+        
 
         
 
