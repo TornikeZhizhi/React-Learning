@@ -17,10 +17,10 @@ const header = (props) =>{
     return(
       <div className="header">
 
-     
+      
     <ul className="header">
-        {navigation.map( (el,i) =>{
-          return   <li key={i}><a className="navlists" href={el.url} >{el.page}</a></li>
+        {navigation.map( (element,index) =>{
+          return   <li key={index}><a className="navlists" href={element.url} >{element.page}</a></li>
         })}
 
      </ul>

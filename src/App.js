@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import './Person/Person.css';
-import Persona from './Person/Person.js';
-import Header from './Person/Header.js';
+import './Component/Person.css';
+import Persona from './Component/Person.js';
+import Header from './Component/Header.js';
+import Blocks from './Component/Blocks.js'
 
 
 
@@ -20,13 +21,6 @@ class App extends Component {
 
     showPersons:true,
 
-    testNames : [
-
-        {name:"toka"},
-        {name:"nika"},
-        {name:"chika"}
-    ],
-
   };
 
   
@@ -40,31 +34,19 @@ class App extends Component {
 
   deletePesonsHandler = (personIndex) => {
 
-  const testnamesArray = this.state.testNames;
-  
-  testnamesArray.splice(personIndex,1)
-    this.setState({testNames:testnamesArray})
+    const testnamesArray = this.state.persons;
+    testnamesArray.splice(personIndex,1)
+    this.setState({persons:testnamesArray})
 
   }
-
-  testfuncton =  (indexvalue) => {
-
-    this.state.navigation.splice(indexvalue,1)
-    this.setState({navigation:this.state.navigation})
-    document.getElementsByClassName("navlists")[indexvalue].classList.add("active");
-    console.log("I am " + indexvalue + " element")
-    
-  }
-
 
   render(){
 
     let persons = null;
-
     if (this.state.showPersons === true){
       persons = (
          <div>
-           {this.state.testNames.map((person,index) =>{
+           {this.state.persons.map((person,index) =>{
           
             return( 
               <div>
@@ -83,18 +65,10 @@ class App extends Component {
     return (
       <div className="App">
 
-
-       
           <Header></Header>
-    
-        <button onClick={this.clickFunction}>Clear </button>
-        {this.state.showPersons === true ? <div>blablb</div>: null}
-        {persons}
-      
-        
-
-        
-
+          <Blocks></Blocks>
+          <button onClick={this.clickFunction}>Clear </button>
+          {persons}
 
       </div>
     );
