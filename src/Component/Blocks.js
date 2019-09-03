@@ -12,11 +12,11 @@ const images = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 
 
  const imagesArray = [
-    { id: 1, src: 'art.jpg', title: 'Art', description: 'bar' },
-    { id: 2, src: 'about-artist.png', title: 'Main Art', description: 'bar' },
-    { id: 3, src: 'art.jpg', title: 'Grand', description: 'bar' },
-    { id: 4, src: 'child.png', title: 'Foo', description: 'bar' },
-    { id: 5, src: 'art.jpg', title: 'None', description: 'bar' }
+    { id: 1, src: 'art.jpg', title: 'Art', description: 'Painting Of Art' },
+    { id: 2, src: 'about-artist.png', title: 'Main Art', description: 'Painting Of Art' },
+    { id: 3, src: 'art.jpg', title: 'Grand', description: 'Painting Of Art' },
+    { id: 4, src: 'child.png', title: 'Foo', description: 'Painting' },
+    { id: 5, src: 'art.jpg', title: 'None', description: 'Painting Of Art' }
   ];
 
 const block = (props) => {

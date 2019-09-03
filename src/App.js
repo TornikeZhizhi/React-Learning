@@ -18,19 +18,11 @@ class App extends Component {
       {name:"toka2", age:"21"}
 
     ],
-
-    showPersons:true,
+    blockHandler:true
 
   };
 
   
-
-  clickFunction = () =>{
-    this.setState({
-      showPersons: !this.state.showPersons
-    })
-
-  }
 
   deletePesonsHandler = (personIndex) => {
 
@@ -38,6 +30,14 @@ class App extends Component {
     testnamesArray.splice(personIndex,1)
     this.setState({persons:testnamesArray})
 
+  }
+
+
+  blockclickFunction = () => {
+
+    this.setState({
+      blockHandler: !this.state.blockHandler
+    })
   }
 
   render(){
@@ -60,14 +60,24 @@ class App extends Component {
     }
 
 
+    let block = null;
+
+    if(this.state.blockHandler === true){
+      block = ( 
+          <Blocks></Blocks>
+        )
+    }
+
+
+
   
 
     return (
       <div className="App">
 
           <Header></Header>
-          <Blocks></Blocks>
-          <button onClick={this.clickFunction}>Clear </button>
+          <button onClick={this.blockclickFunction}>Block Toggle Button </button>
+          {block}
           {persons}
 
       </div>
