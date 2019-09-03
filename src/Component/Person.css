@@ -6,6 +6,9 @@
     text-decoration: none;
 }
 
+body {
+    background-color: antiquewhite;
+}
 .person{
 
     border: 1px solid red;
@@ -50,6 +53,9 @@
     flex-wrap: wrap;
     justify-content:space-between;
     padding: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 95%;
 }
 
 .block_container>div {
@@ -64,4 +70,19 @@
     color:#ccc;
     text-transform: capitalize;
     font-size: 20px;
+}
+
+button {
+
+    background-color: aqua;
+    border: none;
+    color: goldenrod;
+    text-transform: capitalize;
+    border-radius: 10px;
+    padding: 10px 15px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 23px;
+    font-weight: bold;
 }
