@@ -7,7 +7,7 @@ const userinput = (props) => {
       
         <div className="userInput">
 
-            <input id="myname" type="text" onChange={props.change} value={props.defaultfValue} />  
+            <input key={props.key}  id="myname" type="text" onChange={props.change} value={props.defaultfValue} />  
         </div>
     
         

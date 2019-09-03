@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import './Person/Person.css';
-import UserOutpoot from './userOutpoot/userOutpoot.js';
 import Persona from './Person/Person.js';
 import Header from './Person/Header.js';
 
@@ -18,20 +17,6 @@ class App extends Component {
       {name:"toka2", age:"21"}
 
     ],
-
-
-    navigation: [
-
-      {url:"www.google.com",page:"home"},
-      {url:"www.fb.com",page:"about"},
-      {url:"www.instagram.com",page:"gallery"},
-      {url:"www.go.com",page:"contact"},
-      {url:"www.foer.com",page:"video"},
-      {url:"www.google2.com",page:"book"}
-
-
-    ],
-
 
     showPersons:true,
 
@@ -62,16 +47,6 @@ class App extends Component {
 
   }
 
-
-
-  deleteOutpootHandeler = (outIndex) => {
-    
-   
-    this.state.persons.splice(outIndex,1)
-    this.setState({person:this.state.persons})
-  }
-
-
   testfuncton =  (indexvalue) => {
 
     this.state.navigation.splice(indexvalue,1)
@@ -90,6 +65,7 @@ class App extends Component {
       persons = (
          <div>
            {this.state.testNames.map((person,index) =>{
+          
             return( 
               <div>
                 <Persona key={index} clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
@@ -101,53 +77,20 @@ class App extends Component {
       )
     }
 
-   let outPoot = (
 
-      <div>
-        {
-          this.state.persons.map((value,index)=> {
-
-            return(
-
-             <div>
-               <UserOutpoot  key={index} clicked={this.deleteOutpootHandeler.bind(this,index)} name={value.name} age={index}></UserOutpoot>
-            </div>
-            
-            )
-          })
- 
-
-
-        }
-      
-      </div>  
-    )
-
-     
-
-    let navigation = (
-
-      <div className="header">
-            
-                  <Header  data={this.state.navigation} ></Header>
-          </div>
-    )
+  
 
     return (
       <div className="App">
 
 
        
-          
-           {navigation}
-         
-          
+          <Header></Header>
     
-        
         <button onClick={this.clickFunction}>Clear </button>
-        {this.state.showPersons === false ? <div>blablb</div>: null}
+        {this.state.showPersons === true ? <div>blablb</div>: null}
         {persons}
-        {outPoot}
+      
         
 
         
