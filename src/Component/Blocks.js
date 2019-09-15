@@ -28,9 +28,9 @@ const block = (props) => {
          {
            imagesArray.map( (element,inedx)=> {
             return (
-                <div className="block_wrapper">
+                <div className="block_wrapper" key={element.id}>
                     <div className="img_box">
-                        <img key={element.id} src={images[element.src]} alt={element.title}/>
+                        <img src={images[element.src]} alt={element.title}/>
                     </div>
                     <div className="block_text">
                         <h2>{element.title}</h2>

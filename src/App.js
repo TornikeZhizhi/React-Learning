@@ -3,7 +3,9 @@ import './App.css';
 import './Component/Person.css';
 import Persona from './Component/Person.js';
 import Header from './Component/Header.js';
-import Blocks from './Component/Blocks.js'
+import Blocks from './Component/Blocks.js';
+import Valida from './Validation/Validation.js';
+import Char from './Validation/Char.js';
 
 
 
@@ -11,6 +13,9 @@ import Blocks from './Component/Blocks.js'
 class App extends Component {
 
   state = {
+
+    userinput:"",
+
     persons: [
 
       {name:"toka", age:"22"},
@@ -18,7 +23,8 @@ class App extends Component {
       {name:"toka2", age:"21"}
 
     ],
-    blockHandler:true
+    blockHandler:true,
+    showPersons:true
 
   };
 
@@ -39,18 +45,44 @@ class App extends Component {
       blockHandler: !this.state.blockHandler
     })
   }
+  
+
+  inputHandeler = (event) => {
+
+    this.setState(
+      {userinput:event.target.value}
+    )
+  }
+
+  deletechar = (charindex) => {
+
+    const text = this.state.userinput.split("");
+    text.splice(charindex,1)
+    const updated = text.join("")
+    this.setState({userinput:updated})
+  }
 
   render(){
+
+    var classname = ["chart","green","brown"].join(" ")
+
+      const charList = this.state.userinput.split("").map((ch,index) => {
+
+        return (
+          <Char classes={classname} charakter={ch} key={index} clicked={()=> this.deletechar(index)}></Char>
+        )
+      })
+  
 
     let persons = null;
     if (this.state.showPersons === true){
       persons = (
          <div>
            {this.state.persons.map((person,index) =>{
-          
-            return( 
-              <div>
-                <Persona key={index} clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
+            
+            return(   
+              <div key={index}>
+                <Persona clicked={()=> this.deletePesonsHandler(index)} name={person.name}/>
               </div>
             ) 
             })}
@@ -74,12 +106,17 @@ class App extends Component {
 
     return (
       <div className="App">
-
+          
           <Header></Header>
           <button onClick={this.blockclickFunction}>Block Toggle Button </button>
           {block}
           {persons}
 
+          <input type="text" value={this.state.userinput} 
+          onChange={this.inputHandeler}></input>
+          <p>{this.state.userinput}</p>
+          <Valida inputlength={this.state.userinput.length}></Valida>
+          {charList}
       </div>
     );
   }
