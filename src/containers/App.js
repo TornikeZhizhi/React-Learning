@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import './Component/Person.css';
-import Persona from './Component/Person.js';
-import Header from './Component/Header.js';
-import Blocks from './Component/Blocks.js';
-import Valida from './Validation/Validation.js';
-import Char from './Validation/Char.js';
+import '../Component/Person.css';
+import Persona from '../Component/Person.js';
+import Header from '../Component/Header.js';
+import Blocks from '../Component/Blocks.js';
+import Valida from '../Validation/Validation.js';
+import Char from '../Validation/Char.js';
 
 
 
@@ -13,6 +13,16 @@ import Char from './Validation/Char.js';
 class App extends Component {
 
   state = {
+
+    navigation:[
+
+      {url:"www.google.com",page:"home"},
+      {url:"www.fb.com",page:"about"},
+      {url:"www.instagram.com",page:"gallery"},
+      {url:"www.go.com",page:"contact"},
+      {url:"www.foer.com",page:"video"},
+      {url:"www.google2.com",page:"book"}
+    ],
 
     userinput:"",
 
@@ -107,7 +117,7 @@ class App extends Component {
     return (
       <div className="App">
           
-          <Header></Header>
+          <Header navigation={this.state.navigation}></Header>
           <button onClick={this.blockclickFunction}>Block Toggle Button </button>
           {block}
           {persons}
