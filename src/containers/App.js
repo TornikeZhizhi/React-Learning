@@ -17,6 +17,7 @@ class App extends Component {
     persons: [],
 
     userInput:"Default Name",
+    divsShow:true
  
 
   };
@@ -33,6 +34,7 @@ class App extends Component {
 
  //Add Block
   addblockFunction = () => {
+    this.setState({divsShow:true})
     var x = this.state.persons.push({name:this.state.userInput,age:this.state.persons.length+1});
     this.setState({person:x})
   }
@@ -43,6 +45,19 @@ class App extends Component {
     this.setState({persons:y})
   }
 
+  // Delete Block
+  deleteBlock = () => {
+
+    this.setState({
+      divsShow:false,
+      persons:[]
+    },
+      
+      
+      )
+
+  }
+
 
 
 
@@ -50,27 +65,28 @@ class App extends Component {
 
   render(){
  
-  
-      let divs = (
+    let divs;
 
-        <div>
-            {this.state.persons.map((person, index) => {
-                return (
-                <div key={index} >My name is {person.name} and i am {person.age}<span onClick={() => this.deletediv(index)} className="close">X</span> </div>
-                  )
-              
-            })}
-        </div>
-
-
-      )
+    if(this.state.divsShow === true){
+        divs = (
+            <div>
+                {this.state.persons.map((person, index) => {
+                    return (
+                    <div key={index} >My name is {person.name} and i am {person.age}<span onClick={() => this.deletediv(index)} className="close">X</span> </div>
+                      )
+                  
+                })}
+            </div>
+          )
+    }
         
 
     return (
       <div className="App">
           <input type="text" onChange={this.inputHandeler}></input>
-        {divs}
+          {divs}
           <button onClick={this.addblockFunction}>ADD</button>
+          <button onClick={this.deleteBlock}>Clear All</button>
           {/* <Blocks></Blocks> */}
        
         
