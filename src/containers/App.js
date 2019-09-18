@@ -16,7 +16,7 @@ class App extends Component {
 
     persons: [],
 
-    userInput:"",
+    userInput:"Default Name",
  
 
   };
@@ -25,20 +25,18 @@ class App extends Component {
 
   
   inputHandeler = (event) => {
-
-    console.log(this.state.userInput)
     this.setState({
-
       userInput:event.target.value
     })
   }
 
+
+ //Add Block
   addblockFunction = () => {
     var x = this.state.persons.push({name:this.state.userInput,age:this.state.persons.length+1});
     this.setState({person:x})
   }
-
-
+// Delete Block
   deletediv =(clickIndex) =>{
     const y =  this.state.persons
     y.splice(clickIndex,1)
