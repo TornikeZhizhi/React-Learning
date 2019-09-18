@@ -5,7 +5,22 @@
     margin: 0;
     text-decoration: none;
 }
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
 
+.inputContainer>div{
+    margin-right: 10px;
+}
+.close {
+    background-color:red;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor:no-drop;
+
+}
 body {
     background-color: antiquewhite;
 }

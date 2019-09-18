@@ -7,7 +7,7 @@ const person = (props) => {
     return(
 
       <div className="person1">
-        <h1>Hi my name is {props.name}</h1>
+        <h1 onClick={props.clicked}>Hi e my name is {props.name}</h1>
       </div>  
      )
 }
