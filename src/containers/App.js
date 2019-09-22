@@ -21,27 +21,25 @@ class App extends Component {
   //Add Block
   addblockFunction = () => {
     this.setState({ divsShow: true });
-    var x = this.state.persons.push({
-      name: this.state.userInput,
-      age: this.state.persons.length + 1
-    });
-    this.setState({ person: x });
+
+    this.setState(prev => ({
+      persons: [
+        ...prev.persons,
+        {
+          name: this.state.userInput,
+          age: this.state.persons.length + 1
+        }
+      ]
+    }));
   };
   // Delete Block
   deletediv = clickIndex => {
-    const y = this.state.persons;
-    y.splice(clickIndex, 1);
-    this.setState({ persons: y });
+    this.setState(prev => ({
+      persons: prev.persons.filter((el, i) => i != clickIndex)
+    }));
   };
 
   // Delete Block
-  deleteBlock = () => {
-    this.setState({
-      divsShow: false,
-      persons: []
-    });
-  };
-
   render() {
     let divs;
 
@@ -50,12 +48,19 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <div key={index}>
-                My name is {person.name} and i am {person.age}
-                <span onClick={() => this.deletediv(index)} className="close">
-                  X
-                </span>{" "}
-              </div>
+              <>
+                {
+                  <div>
+                    My name is {person.name} and i am {person.age}
+                    <span
+                      onClick={() => this.deletediv(index)}
+                      className="close"
+                    >
+                      X
+                    </span>
+                  </div>
+                }
+              </>
             );
           })}
         </div>
@@ -64,11 +69,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Nav></Nav>
+        <Nav test={this.state.userInput}></Nav>
         <input type="text" onChange={this.inputHandeler}></input>
         {divs}
         <button onClick={this.addblockFunction}>ADD</button>
-        <button onClick={this.deleteBlock}>Clear All</button>
       </div>
     );
   }

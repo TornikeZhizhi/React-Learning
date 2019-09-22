@@ -73,7 +73,9 @@ body {
   height: 150px;
   object-fit: cover;
 }
-
+.dropdown a {
+  font-size: 12px !important;
+}
 .block_container {
   display: flex;
   flex-wrap: wrap;
