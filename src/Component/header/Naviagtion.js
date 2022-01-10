@@ -16,7 +16,7 @@ class Nav extends Component {
         { nav: "Inside2", href: "www.go2.ge" }
       ],
       [
-        { page: "contact", link: "www.google.ge" },
+        { page: "contact2", link: "www.google.ge" },
         { nav: "Inside2", href: "www.go2.ge" }
       ]
     ]

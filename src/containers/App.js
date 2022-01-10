@@ -1,78 +1,28 @@
 import React, { Component } from "react";
 import "./App.css";
-import "../Component/Person.css";
-import Blocks from "../Component/Blocks.js";
-import Nav from "../Component/Navigation.js";
-
+import Blocks from "../Component/imgBlocks/Blocks";
+import Nav from "../Component//header/Naviagtion";
+import ToDoList from "../Component/ToDoList/TodoList";
+import ExpenseMain from "../Component/Expense/ExpenseMain";
 class App extends Component {
   state = {
-    persons: [],
-
-    userInput: "Default Name",
-    divsShow: true
+  
   };
 
-  inputHandeler = event => {
-    this.setState({
-      userInput: event.target.value
-    });
-  };
 
-  //Add Block
-  addblockFunction = () => {
-    this.setState({ divsShow: true });
 
-    this.setState(prev => ({
-      persons: [
-        ...prev.persons,
-        {
-          name: this.state.userInput,
-          age: this.state.persons.length + 1
-        }
-      ]
-    }));
-  };
-  // Delete Block
-  deletediv = clickIndex => {
-    this.setState(prev => ({
-      persons: prev.persons.filter((el, i) => i != clickIndex)
-    }));
-  };
 
-  // Delete Block
+
+
+
   render() {
-    let divs;
-
-    if (this.state.divsShow === true) {
-      divs = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <>
-                {
-                  <div>
-                    My name is {person.name} and i am {person.age}
-                    <span
-                      onClick={() => this.deletediv(index)}
-                      className="close"
-                    >
-                      X
-                    </span>
-                  </div>
-                }
-              </>
-            );
-          })}
-        </div>
-      );
-    }
-
     return (
       <div className="App">
-        <Nav test={this.state.userInput}></Nav>
-        <input type="text" onChange={this.inputHandeler}></input>
-        {divs}
-        <button onClick={this.addblockFunction}>ADD</button>
+        <Nav></Nav>
+        <ToDoList></ToDoList>
+        <ExpenseMain></ExpenseMain>
+        {/* <Blocks></Blocks> */}
+    
       </div>
     );
   }
