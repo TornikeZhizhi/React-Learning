@@ -4,6 +4,8 @@ import Blocks from "../Component/imgBlocks/Blocks";
 import Nav from "../Component//header/Naviagtion";
 import ToDoList from "../Component/ToDoList/TodoList";
 import ExpenseMain from "../Component/Expense/ExpenseMain";
+import AddUserMain from "../addUser/AddUserMain";
+
 class App extends Component {
   state = {
   
@@ -18,9 +20,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav></Nav>
+
+
+        <AddUserMain></AddUserMain>
+        {/* <Nav></Nav>
         <ToDoList></ToDoList>
-        <ExpenseMain></ExpenseMain>
+        <ExpenseMain></ExpenseMain> */}
         {/* <Blocks></Blocks> */}
     
       </div>
