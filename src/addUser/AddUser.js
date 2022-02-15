@@ -22,8 +22,8 @@ const AddUser = (props)=>{
         // console.log(nameChange, ageChange)
         
         props.onAddUser(nameChange,ageChange)
-        setNameChange("")
-        setAgeChange("")
+        // setNameChange("")
+        // setAgeChange("")
     }
 
     return (

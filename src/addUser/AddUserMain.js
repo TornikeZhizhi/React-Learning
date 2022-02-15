@@ -13,20 +13,52 @@ const AddUserMain = ()=>{
     const addUserHandler = (name, age) => {
         console.log(name,age)
         setUser( (prevState) =>{
-            return [...prevState, {name:name, age:age}]
+            return [...prevState, {name:name, age:age,editToggle:true,id:Math.random().toString()}]
         })
     }
 
 
     const delUser = (delIndex)=>{
-        setUser((previusState)=>{
-            return previusState.filter((index,el)=>{
-             return el != delIndex
-            })
+        // setUser((previusState)=>{
+        //     return previusState.filter((index,el)=>{
+        //      return el != delIndex
+        //     })
+        // })
+
+        const data = user.filter((index,el)=>{
+            return el != delIndex
         })
-        
+        // console.log(data)
+        setUser(data)
+    
     }
     
+    const editUser = (editIndex)=>{
+        const editData = [];
+            user.map((el,index)=>{
+                if (index == editIndex) {
+                     el.editToggle = false;
+                }
+                editData.push(el)
+            })
+        setUser(editData)
+
+    }
+
+    const EditUserHandler = (editName,editAge,editIndex) => {
+        // console.log(editName,editAge,editIndex)
+        const finalEditData = [];
+        user.map((el,index)=>{
+            if (index == editIndex) {
+                 el.name = editName
+                 el.age = editAge
+                 el.editToggle = true;
+            }
+            finalEditData.push(el)
+        })
+    setUser(finalEditData)
+
+    }
     
 
 
@@ -34,7 +66,7 @@ const AddUserMain = ()=>{
     return (
         <>
         <AddUser  onAddUser={addUserHandler}></AddUser>
-        <UserList userList={user} delUserIndex={delUser}></UserList>
+        <UserList onEditUserHandler={EditUserHandler} userList={user} editUserIndex={editUser} delUserIndex={delUser}></UserList>
         </>
     )
 
