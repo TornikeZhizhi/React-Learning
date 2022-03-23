@@ -45,14 +45,16 @@ const AddUserMain = ()=>{
 
     }
 
+    
+
     const EditUserHandler = (editName,editAge,editIndex) => {
         // console.log(editName,editAge,editIndex)
         const finalEditData = [];
         user.map((el,index)=>{
             if (index == editIndex) {
-                 el.name = editName
-                 el.age = editAge
                  el.editToggle = true;
+                 el.name = editName;
+                 el.age = editAge;
             }
             finalEditData.push(el)
         })
