@@ -6,6 +6,7 @@ import ToDoList from "../Component/ToDoList/TodoList";
 import ExpenseMain from "../Component/Expense/ExpenseMain";
 import AddUserMain from "../addUser/AddUserMain";
 import ResourseMain from "../AddRecources/RecourcesMain";
+import HookMain from "../ReactHookProject/HookMain";
 class App extends Component {
   state = {
   
@@ -21,8 +22,8 @@ class App extends Component {
     return (
       <div className="App">
 
-
-        <ResourseMain></ResourseMain>
+        <HookMain></HookMain>
+        {/* <ResourseMain></ResourseMain> */}
         {/* <AddUserMain></AddUserMain> */}
         {/* <Nav></Nav>
         <ToDoList></ToDoList>

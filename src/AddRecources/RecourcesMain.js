@@ -45,6 +45,7 @@ class ResourseMain  extends Component {
             this.setState({
                 filterData:this.state.storedData
             })
+            this.innerFilterWord()
         })   
     }
 

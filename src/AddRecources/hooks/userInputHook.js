@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 
 
-const UserInputHook = () =>{
+const UserInputHook = (initvalue) =>{
 
-const [input, setInput] = useState("");
+const [input, setInput] = useState(initvalue);
     const setInputHandler = (event) => {
+      // event.preventDefault()
       setInput(event.target.value)
     }
     const setInputClear = ()=>{
