@@ -1,4 +1,4 @@
-import React, { useState  } from "react"; 
+import React, { useState ,useEffect  } from "react"; 
 import TodoFormX from "./TodoFormX";
 import TodoListX from "./TodoListX";
 import uuid from 'react-uuid';
@@ -6,15 +6,25 @@ import uuid from 'react-uuid';
 
 const HookMain = () =>{
 
-    const initialTodos = [
+    
+    const initialTodos = JSON.parse(window.localStorage.getItem("todos"));
+    console.log(window.localStorage.getItem("todos"))
+    console.log(JSON.parse(window.localStorage.getItem("todos")))
+    // const initialTodos = [
 
-        {id:1,task:"clean fish", completed:false},
-        {id:2,task:"wash car", completed:true},
-        {id:3,task:"grow", completed:true},
+    //     {id:1,task:"clean fish", completed:false},
+    //     {id:2,task:"wash car", completed:true},
+    //     {id:3,task:"grow", completed:true},
          
-    ]
+    // ]
 
     const [todos,setTodos] = useState(initialTodos);
+
+    useEffect(()=>{
+
+        window.localStorage.setItem("todos", JSON.stringify(todos))
+    })
+
 
     const addTodo = newTodoText =>{
         setTodos([...todos,{id:uuid(),task:newTodoText, completed:false}])
