@@ -7,6 +7,7 @@ import ExpenseMain from "../Component/Expense/ExpenseMain";
 import AddUserMain from "../addUser/AddUserMain";
 import ResourseMain from "../AddRecources/RecourcesMain";
 import HookMain from "../ReactHookProject/HookMain";
+import MainContext from "../ContextProject/MainContext";
 class App extends Component {
   state = {
   
@@ -22,7 +23,8 @@ class App extends Component {
     return (
       <div className="App">
 
-        <HookMain></HookMain>
+        <MainContext></MainContext>
+        {/* <HookMain></HookMain> */}
         {/* <ResourseMain></ResourseMain> */}
         {/* <AddUserMain></AddUserMain> */}
         {/* <Nav></Nav>
